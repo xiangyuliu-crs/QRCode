@@ -1,3 +1,18 @@
+# Project Overview
+
+## 1. Integrate Google Sign-in
+
+Google Sign-in functionality is implemented following the examples described in 
+https://www.quod.ai/post/how-to-integrate-google-api-into-your-react-app and 
+https://www.youtube.com/watch?v=HtJKUQXmtok
+
+### 1.1 Create a Google Client ID
+
+### 1.2 Import `react-google-login` library
+
+### 1.3 Add components `LoginComponent` and `LogoutComponent`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
