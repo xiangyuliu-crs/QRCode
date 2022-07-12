@@ -3,10 +3,14 @@
 ## 1. Integrate Google Sign-in
 
 Google Sign-in functionality is implemented following the examples described in 
-https://www.quod.ai/post/how-to-integrate-google-api-into-your-react-app and 
-https://www.youtube.com/watch?v=HtJKUQXmtok
+[How to integrate Google API into your React app](https://www.quod.ai/post/how-to-integrate-google-api-into-your-react-app) and 
+[Google OAuth 2.0 Login for React in 5 minutes
+](https://www.youtube.com/watch?v=HtJKUQXmtok)
 
 ### 1.1 Create a Google Client ID
+In order to integrate Google Login into our React app, we need a _Google Client ID_.\
+Go to the Google API’s [Credentials Page](https://console.developers.google.com/apis/credentials) to create a Google API Project.\
+Follow the steps in [How to integrate Google API into your React app](https://www.quod.ai/post/how-to-integrate-google-api-into-your-react-app), we would get our _Google Client ID_, which consists of _Client ID_ and _Client Secret_.
 
 ### 1.2 Import `react-google-login` library
 
