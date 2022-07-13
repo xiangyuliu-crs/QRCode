@@ -5,6 +5,12 @@ import { DROPDOWN_OPTIONS } from "./Helper";
 
 const GenerateQRCode = () => {
   const [selectedValue, setSelectedValue] = React.useState("");
+  const [buttonClicked, setButtonClicked] = React.useState(false);
+
+  const dropdownChangeHandler = (event) => {
+    setSelectedValue(event.target.value);
+    setButtonClicked(false);
+  };
 
   return (
     <React.Fragment>
@@ -12,9 +18,12 @@ const GenerateQRCode = () => {
         options={DROPDOWN_OPTIONS}
         placeholder={{ value: "", label: "select your option" }}
         selectedValue={selectedValue}
-        onChange={(e) => setSelectedValue(e.target.value)}
+        onChange={dropdownChangeHandler}
       />
-      <button>Generate QR Code</button>
+      {buttonClicked && !selectedValue && (
+        <span>Please select a value to generate a QR code</span>
+      )}
+      <button onClick={() => setButtonClicked(true)}>Generate QR Code</button>
       <QRCode valueForQRCode={selectedValue} />
     </React.Fragment>
   );
