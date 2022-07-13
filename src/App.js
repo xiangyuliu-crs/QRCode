@@ -1,9 +1,10 @@
+import React from "react";
 import "./App.css";
 import LoginButton from "./Components/LoginComponent.tsx";
 import LogoutButton from "./Components/LogoutComponent.tsx";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
-import { CLIENT_ID } from "./Components/Helper";
+import { CLIENT_ID, DROPDOWN_OPTIONS } from "./Components/Helper";
 import Dropdown from "./Components/DropdownComponent.tsx";
 
 function App() {
@@ -18,17 +19,18 @@ function App() {
     gapi.load("client:auth2", start);
   });
 
-  const options = [
-    { label: "Fruit", value: "fruit" },
-    { label: "Vegetable", value: "vegetable" },
-    { label: "Meat", value: "meat" },
-  ];
+  const [selectedValue, setSelectedValue] = React.useState("");
 
   return (
     <div className="App">
       <LoginButton />
       <LogoutButton />
-      <Dropdown options={options} placeholder={"select your option"} />
+      <Dropdown
+        options={DROPDOWN_OPTIONS}
+        placeholder={{ value: "", label: "select your option" }}
+        selectedValue={selectedValue}
+        onChange={(e) => setSelectedValue(e.target.value)}
+      />
     </div>
   );
 }

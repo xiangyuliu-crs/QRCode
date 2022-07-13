@@ -7,17 +7,20 @@ export interface DropdownOption {
 
 interface DropdownListProps {
   options: DropdownOption[];
-  placeholder?: string;
+  placeholder?: DropdownOption;
+  selectedValue: string;
+  onChange: (e) => void;
 }
 
 const DropdownList: React.FC<DropdownListProps> = (props) => {
-  const { options, placeholder } = props;
+  const { options, placeholder, selectedValue, onChange } = props;
+
   return (
     <React.Fragment>
-      <select>
+      <select value={selectedValue} onChange={onChange}>
         {placeholder && (
-          <option value="" disabled>
-            {placeholder}
+          <option value={placeholder.value} disabled>
+            {placeholder.label}
           </option>
         )}
         {options.map((opt) => (
