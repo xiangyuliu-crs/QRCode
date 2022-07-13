@@ -28,7 +28,7 @@ const onLogoutSuccess = () => {
 const Logout: React.FC = () => (
   <GoogleLogout
     clientId={CLIENT_ID}
-    buttonText="Logout"
+    buttonText="Sign out"
     onLogoutSuccess={onLogoutSuccess}
   />
 );
