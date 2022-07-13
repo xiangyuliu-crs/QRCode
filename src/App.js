@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import { CLIENT_ID, DROPDOWN_OPTIONS } from "./Components/Helper";
 import Dropdown from "./Components/DropdownComponent.tsx";
+import QRCode from "./Components/QRCodeComponent.tsx";
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
         selectedValue={selectedValue}
         onChange={(e) => setSelectedValue(e.target.value)}
       />
+      <QRCode valueForQRCode={selectedValue} />
     </div>
   );
 }
