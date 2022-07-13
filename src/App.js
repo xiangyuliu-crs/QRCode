@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import LoginButton from "./Components/LoginComponent.tsx";
-import LogoutButton from "./Components/LogoutComponent.tsx";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import { CLIENT_ID } from "./Components/Helper";
 import GenerateQRCode from "./Components/GenerateQRCodeComponent.js";
+import SignIn from "./Components/SignInComponent.tsx";
 
 function App() {
   useEffect(() => {
@@ -21,8 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoginButton />
-      <LogoutButton />
+      <SignIn />
       <GenerateQRCode />
     </div>
   );
