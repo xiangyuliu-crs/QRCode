@@ -4,9 +4,8 @@ import LoginButton from "./Components/LoginComponent.tsx";
 import LogoutButton from "./Components/LogoutComponent.tsx";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
-import { CLIENT_ID, DROPDOWN_OPTIONS } from "./Components/Helper";
-import Dropdown from "./Components/DropdownComponent.tsx";
-import QRCode from "./Components/QRCodeComponent.tsx";
+import { CLIENT_ID } from "./Components/Helper";
+import GenerateQRCode from "./Components/GenerateQRCodeComponent.js";
 
 function App() {
   useEffect(() => {
@@ -20,19 +19,11 @@ function App() {
     gapi.load("client:auth2", start);
   });
 
-  const [selectedValue, setSelectedValue] = React.useState("");
-
   return (
     <div className="App">
       <LoginButton />
       <LogoutButton />
-      <Dropdown
-        options={DROPDOWN_OPTIONS}
-        placeholder={{ value: "", label: "select your option" }}
-        selectedValue={selectedValue}
-        onChange={(e) => setSelectedValue(e.target.value)}
-      />
-      <QRCode valueForQRCode={selectedValue} />
+      <GenerateQRCode />
     </div>
   );
 }
