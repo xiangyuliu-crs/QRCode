@@ -1,4 +1,5 @@
 import React from "react";
+import "./DropdownComponent.css";
 
 export interface DropdownOption {
   label: string;
@@ -24,18 +25,20 @@ const DropdownList: React.FC<DropdownListProps> = (props) => {
 
   return (
     <React.Fragment>
-      <select value={selectedValue} onChange={onChange}>
-        {placeholder && (
-          <option value={placeholder.value} disabled>
-            {placeholder.label}
-          </option>
-        )}
-        {optionsForDropdown.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+      <div className="selection-field">
+        <select value={selectedValue} onChange={onChange}>
+          {placeholder && (
+            <option value={placeholder.value} disabled>
+              {placeholder.label}
+            </option>
+          )}
+          {optionsForDropdown.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </React.Fragment>
   );
 };
