@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import QRCoder from "qrcode";
 
 interface QRCodeProps {
   valueForQRCode: string;
@@ -6,10 +7,20 @@ interface QRCodeProps {
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const { valueForQRCode } = props;
-  const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${valueForQRCode}&size=100x100&color=FFA500`;
+  const [imgSrc, setImgSrc] = useState("");
+
+  React.useEffect(() => {
+    valueForQRCode &&
+      QRCoder.toDataURL(valueForQRCode, {
+        color: { dark: "#fff", light: "#FFA500" },
+      })
+        .then((data) => setImgSrc(data))
+        .catch((e) => console.log(e));
+  });
+
   return (
     <React.Fragment>
-      {valueForQRCode && <img src={apiUrl} alt="A QR Code" />}
+      {imgSrc && <img src={imgSrc} alt="A QR Code" />}
     </React.Fragment>
   );
 };
