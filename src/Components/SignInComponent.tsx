@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { CLIENT_ID } from "./Helper";
-export interface LoginUserProfile {
+interface LoginUserProfile {
   givenName: string;
   familyName: string;
   email: string;
@@ -9,6 +9,22 @@ export interface LoginUserProfile {
   googleId: string;
   imageUrl: string;
 }
+
+interface UserProfileComponentProps {
+  user: LoginUserProfile;
+}
+
+const UserProfileComponent: React.FC<UserProfileComponentProps> = (props) => {
+  const { user } = props;
+  return (
+    user && (
+      <React.Fragment>
+        <img src={user.imageUrl} alt="user profile image" />
+        <div>Hello {user.givenName}!</div>
+      </React.Fragment>
+    )
+  );
+};
 
 interface SignInProps {
   currentLoginUser: LoginUserProfile | undefined;
@@ -35,7 +51,7 @@ const SignIn: React.FC<SignInProps> = (props) => {
 
   return (
     <React.Fragment>
-      {currentLoginUser && <div>Welcome {currentLoginUser.name}!</div>}
+      <UserProfileComponent user={currentLoginUser} />
       {!currentLoginUser && (
         <GoogleLogin
           clientId={CLIENT_ID}
