@@ -52,7 +52,13 @@ const SignIn: React.FC<SignInProps> = (props) => {
   return (
     <React.Fragment>
       <UserProfileComponent user={currentLoginUser} />
-      {!currentLoginUser && (
+      {currentLoginUser ? (
+        <GoogleLogout
+          clientId={CLIENT_ID}
+          buttonText="Sign out"
+          onLogoutSuccess={onLogoutSuccess}
+        />
+      ) : (
         <GoogleLogin
           clientId={CLIENT_ID}
           buttonText="Sign in with Google"
@@ -60,13 +66,6 @@ const SignIn: React.FC<SignInProps> = (props) => {
           onFailure={onLoginFailure}
           cookiePolicy={"single_host_origin"}
           isSignedIn={true}
-        />
-      )}
-      {currentLoginUser && (
-        <GoogleLogout
-          clientId={CLIENT_ID}
-          buttonText="Sign out"
-          onLogoutSuccess={onLogoutSuccess}
         />
       )}
     </React.Fragment>
