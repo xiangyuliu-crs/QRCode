@@ -18,9 +18,11 @@ function App() {
     gapi.load("client:auth2", start);
   });
 
+  const [loginUser, setLoginUser] = React.useState(null);
+
   return (
     <div className="App">
-      <SignIn />
+      <SignIn currentLoginUser={loginUser} setLoginUser={setLoginUser} />
       <GenerateQRCode />
     </div>
   );
