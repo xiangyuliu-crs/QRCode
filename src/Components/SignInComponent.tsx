@@ -19,7 +19,7 @@ const UserProfileComponent: React.FC<UserProfileComponentProps> = (props) => {
   return (
     user && (
       <React.Fragment>
-        <img src={user.imageUrl} alt="user profile image" />
+        <img src={user.imageUrl} alt="user profile" />
         <div>Hello {user.givenName}!</div>
       </React.Fragment>
     )
