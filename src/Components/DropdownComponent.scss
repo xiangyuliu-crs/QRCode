@@ -7,4 +7,9 @@ select {
     font-size: 16px;
     color: white;
     text-align: center;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: 0.8;
+    }
 }
