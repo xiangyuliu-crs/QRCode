@@ -25,20 +25,18 @@ const DropdownList: React.FC<DropdownListProps> = (props) => {
 
   return (
     <React.Fragment>
-      <div className="selection-field">
-        <select value={selectedValue} onChange={onChange}>
-          {placeholder && (
-            <option value={placeholder.value} disabled>
-              {placeholder.label}
-            </option>
-          )}
-          {optionsForDropdown.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select value={selectedValue} onChange={onChange}>
+        {placeholder && (
+          <option value={placeholder.value} disabled>
+            {placeholder.label}
+          </option>
+        )}
+        {optionsForDropdown.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
     </React.Fragment>
   );
 };
