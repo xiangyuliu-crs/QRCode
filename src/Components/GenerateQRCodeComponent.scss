@@ -1,0 +1,44 @@
+.generate-qrcode {
+  display: block;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 400px;
+  padding: 10px 0 0 10px;
+  text-align: left;
+
+  .button {
+    background-color: #272524;
+    border-radius: 6px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 100%;
+    padding: 10px 21px;
+    width: 250px;
+
+    &:hover {
+      background-color: #626364;
+    }
+  }
+
+  .selection-field {
+    margin-bottom: 60px;
+  }
+
+  .qrcode-button {
+    margin-bottom: 20px;
+  }
+
+  .message {
+    padding-top: -60px
+  }
+
+  .qrcode {
+    padding-left: 70px;
+  }
+}
+
+
+

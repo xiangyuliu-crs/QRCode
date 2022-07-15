@@ -3,7 +3,7 @@ import Dropdown from "./DropdownComponent.tsx";
 import QRCode from "./QRCodeComponent.tsx";
 import { DROPDOWN_OPTIONS } from "./Helper";
 import ErrorMessage from "./ErrorMessage.tsx";
-import "./GenerateQRCodeComponent.css";
+import "./GenerateQRCodeComponent.scss";
 
 const GenerateQRCode = () => {
   const [selectedValue, setSelectedValue] = React.useState("");
@@ -22,20 +22,28 @@ const GenerateQRCode = () => {
 
   return (
     <React.Fragment>
-      <Dropdown
-        options={DROPDOWN_OPTIONS}
-        placeholder={{ value: "", label: "select your option" }}
-        selectedValue={selectedValue}
-        onChange={dropdownChangeHandler}
-      />
-      <ErrorMessage
-        isShown={buttonClicked && !selectedValue}
-        message="Please select a value to generate a QR code"
-      />
-      <button className="button" onClick={buttonClickHandler}>
-        Generate QR Code
-      </button>
-      <QRCode valueForQRCode={valueForQRCode} />
+      <div className="generate-qrcode">
+        <div className="qrcode-button">
+          <button className="button" onClick={buttonClickHandler}>
+            Generate QR Code
+          </button>
+        </div>
+        <div className="selection-field">
+          <Dropdown
+            options={DROPDOWN_OPTIONS}
+            placeholder={{ value: "", label: "select your option" }}
+            selectedValue={selectedValue}
+            onChange={dropdownChangeHandler}
+          />
+          <ErrorMessage
+            isShown={buttonClicked && !selectedValue}
+            message="Please select a value to generate a QR code"
+          />
+        </div>
+        <div className="qrcode">
+          <QRCode valueForQRCode={valueForQRCode} />
+        </div>
+      </div>
     </React.Fragment>
   );
 };
