@@ -1,4 +1,5 @@
 import React from "react";
+import "./ErrorMessage.css";
 
 interface ErrorMessageProps {
   isShown: boolean;
@@ -8,9 +9,10 @@ interface ErrorMessageProps {
 
 const ErrorMessage: React.FC<ErrorMessageProps> = (props) => {
   const { isShown, message, className } = props;
+  const updatedClass = className ? `error-msg ${className}` : "error-msg";
   return (
     <React.Fragment>
-      {isShown && <div className={className}>{message}</div>}
+      {isShown && <div className={updatedClass}>{message}</div>}
     </React.Fragment>
   );
 };
