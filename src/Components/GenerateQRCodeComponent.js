@@ -38,6 +38,7 @@ const GenerateQRCode = () => {
           <ErrorMessage
             isShown={buttonClicked && !selectedValue}
             message="Please select a value to generate a QR code"
+            className="error-message"
           />
         </div>
         <div className="qrcode">

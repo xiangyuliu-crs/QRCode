@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: space-around;
   height: 500px;
-  width: 400px;
-  padding: 10px 0 0 10px;
-  text-align: left;
+  width: 100%;
+  padding-top: 150px;
+  text-align: center;
 
   .button {
     background-color: #272524;
@@ -24,21 +24,18 @@
   }
 
   .selection-field {
-    margin-bottom: 60px;
+    margin-bottom: 90px;
+
+    .error-message {
+      margin-top: 10px;
+    }
   }
 
   .qrcode-button {
-    margin-bottom: 20px;
-  }
-
-  .message {
-    padding-top: -60px
-  }
-
-  .qrcode {
-    padding-left: 70px;
+    margin-bottom: 60px;
   }
 }
+
 
 
 
