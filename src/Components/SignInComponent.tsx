@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { CLIENT_ID } from "./Helper";
+import "./SignInComponent.scss";
 interface LoginUserProfile {
   givenName: string;
   familyName: string;
@@ -19,8 +20,10 @@ const UserProfileComponent: React.FC<UserProfileComponentProps> = (props) => {
   return (
     user && (
       <React.Fragment>
-        <img src={user.imageUrl} alt="user profile" />
-        <div>Hello {user.givenName}!</div>
+        <div className="user-profile">
+          <img src={user.imageUrl} alt="user profile" />
+          <div className="message">Hello {user.givenName}!</div>
+        </div>
       </React.Fragment>
     )
   );
@@ -51,23 +54,27 @@ const SignIn: React.FC<SignInProps> = (props) => {
 
   return (
     <React.Fragment>
-      <UserProfileComponent user={currentLoginUser} />
-      {currentLoginUser ? (
-        <GoogleLogout
-          clientId={CLIENT_ID}
-          buttonText="Sign out"
-          onLogoutSuccess={onLogoutSuccess}
-        />
-      ) : (
-        <GoogleLogin
-          clientId={CLIENT_ID}
-          buttonText="Sign in with Google"
-          onSuccess={onLoginSuccess}
-          onFailure={onLoginFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-        />
-      )}
+      <div className="sign-in-component">
+        <UserProfileComponent user={currentLoginUser} />
+        {currentLoginUser ? (
+          <GoogleLogout
+            clientId={CLIENT_ID}
+            buttonText="Sign out account"
+            onLogoutSuccess={onLogoutSuccess}
+            className="google-button"
+          />
+        ) : (
+          <GoogleLogin
+            clientId={CLIENT_ID}
+            buttonText="Sign in with Google"
+            onSuccess={onLoginSuccess}
+            onFailure={onLoginFailure}
+            cookiePolicy={"single_host_origin"}
+            isSignedIn={true}
+            className="google-button"
+          />
+        )}
+      </div>
     </React.Fragment>
   );
 };
