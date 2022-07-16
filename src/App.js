@@ -5,6 +5,7 @@ import { gapi } from "gapi-script";
 import { CLIENT_ID } from "./Components/Helper";
 import GenerateQRCode from "./Components/GenerateQRCodeComponent.js";
 import SignIn from "./Components/SignInComponent.tsx";
+import WelcomeComponent from "./Components/WelcomeComponent.jsx";
 
 function App() {
   useEffect(() => {
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <SignIn currentLoginUser={loginUser} setLoginUser={setLoginUser} />
-      <GenerateQRCode />
+      {loginUser ? <GenerateQRCode /> : <WelcomeComponent />}
     </div>
   );
 }
