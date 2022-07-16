@@ -1,6 +1,8 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { CLIENT_ID } from "./Helper";
+import { useEffect } from "react";
+import { gapi } from "gapi-script";
 import "./SignInComponent.scss";
 interface LoginUserProfile {
   givenName: string;
@@ -35,6 +37,17 @@ interface SignInProps {
 }
 
 const SignIn: React.FC<SignInProps> = (props) => {
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: CLIENT_ID,
+        scope: "",
+      });
+    }
+
+    gapi.load("client:auth2", start);
+  });
+
   const { currentLoginUser, setLoginUser } = props;
 
   const onLoginSuccess = (res) => {
