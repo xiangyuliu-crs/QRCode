@@ -1,4 +1,5 @@
 import Modal, { ModalBody, ModalFooter, ModalHeader } from "./Modal";
+import Button from "../Button/Button";
 
 const MessageModal = ({ showModal, setShowModal, modalHeader, modalBody }) => {
   return (
@@ -13,7 +14,7 @@ const MessageModal = ({ showModal, setShowModal, modalHeader, modalBody }) => {
           </p>
         </ModalBody>
         <ModalFooter>
-          <button onClick={() => setShowModal(false)}>Close</button>
+          <Button onClick={() => setShowModal(false)}>Close</Button>
         </ModalFooter>
       </Modal>
     </div>
