@@ -8,19 +8,7 @@
   text-align: center;
 
   .button {
-    background-color:black;
-    border-radius: 6px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-size: 100%;
-    padding: 10px 21px;
     width: 250px;
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
 
   .selection-field {
