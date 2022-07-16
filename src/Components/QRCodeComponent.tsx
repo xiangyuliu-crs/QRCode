@@ -29,6 +29,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       <MessageModal
         showModal={showMessageModal}
         setShowModal={setShowMessageModal}
+        modalHeader="QR Code Generated"
+        modalBody="Your QR code has been generated successfully. Thank you for using QR Code App."
       />
     </React.Fragment>
   );
