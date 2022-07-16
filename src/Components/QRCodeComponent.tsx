@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QRCoder from "qrcode";
+import MessageModal from "./Modal/MessageModal";
 
 interface QRCodeProps {
   valueForQRCode: string;
@@ -8,19 +9,27 @@ interface QRCodeProps {
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const { valueForQRCode } = props;
   const [imgSrc, setImgSrc] = useState("");
+  const [showMessageModal, setShowMessageModal] = React.useState(false);
 
   React.useEffect(() => {
     valueForQRCode &&
       QRCoder.toDataURL(valueForQRCode, {
-        color: { dark: "#fff", light: "#FFA500" },
+        color: { dark: "#fff", light: "#FF6D00" },
       })
-        .then((data) => setImgSrc(data))
+        .then((data) => {
+          setImgSrc(data);
+          setShowMessageModal(true);
+        })
         .catch((e) => console.log(e));
-  });
+  }, [valueForQRCode]);
 
   return (
     <React.Fragment>
       {imgSrc && <img src={imgSrc} alt="A QR Code" />}
+      <MessageModal
+        showModal={showMessageModal}
+        setShowModal={setShowMessageModal}
+      />
     </React.Fragment>
   );
 };
