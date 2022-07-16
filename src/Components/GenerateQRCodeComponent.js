@@ -31,7 +31,7 @@ const GenerateQRCode = () => {
         <div className="selection-field">
           <Dropdown
             options={DROPDOWN_OPTIONS}
-            placeholder={{ value: "", label: "select your option" }}
+            placeholder={{ value: "", label: "Select your option" }}
             selectedValue={selectedValue}
             onChange={dropdownChangeHandler}
           />
