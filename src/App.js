@@ -3,6 +3,7 @@ import "./App.css";
 import GenerateQRCode from "./Components/GenerateQRCodeComponent.js";
 import SignIn from "./Components/SignInComponent.tsx";
 import WelcomeComponent from "./Components/WelcomeComponent.jsx";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   const [loginUser, setLoginUser] = React.useState(null);
@@ -10,7 +11,18 @@ function App() {
   return (
     <div className="App">
       <SignIn currentLoginUser={loginUser} setLoginUser={setLoginUser} />
-      {loginUser ? <GenerateQRCode /> : <WelcomeComponent />}
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() =>
+              loginUser ? <GenerateQRCode /> : <WelcomeComponent />
+            }
+          />
+        </Switch>
+      </Router>
+      {/* {loginUser ? <GenerateQRCode /> : <WelcomeComponent />} */}
     </div>
   );
 }
