@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "./DropdownComponent.tsx";
-import { useEffect, useState } from "react";
 import axios from "axios";
 
 const beersApiUrl = "https://api.punkapi.com/v2/beers";

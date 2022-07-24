@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "./DropdownComponent.tsx";
 import QRCode from "./QRCodeComponent.tsx";
 import { DROPDOWN_OPTIONS } from "./Helper";
@@ -7,9 +7,9 @@ import "./GenerateQRCodeComponent.scss";
 import Button from "./Button/Button";
 
 const GenerateQRCode = () => {
-  const [selectedValue, setSelectedValue] = React.useState("");
-  const [buttonClicked, setButtonClicked] = React.useState(false);
-  const [valueForQRCode, setValueForQRCode] = React.useState("");
+  const [selectedValue, setSelectedValue] = useState("");
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [valueForQRCode, setValueForQRCode] = useState("");
 
   const dropdownChangeHandler = (event) => {
     setSelectedValue(event.target.value);
