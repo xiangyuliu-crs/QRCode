@@ -24,7 +24,7 @@ export const ApiDropdownComponent = ({selectedValue, onChange}) => {
       .catch(() => {
         return [];
       });
-  }, [beersApiUrl]);
+  }, []);
 
   return (
     <Dropdown
