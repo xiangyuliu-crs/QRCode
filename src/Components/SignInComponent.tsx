@@ -23,7 +23,11 @@ const UserProfileComponent: React.FC<UserProfileComponentProps> = (props) => {
     user && (
       <React.Fragment>
         <div className="user-profile">
-          <img src={user.imageUrl} alt="user profile" />
+          <img
+            src={user.imageUrl}
+            referrerPolicy="no-referrer"
+            alt="user profile"
+          />
           <div className="message">Hello {user.givenName}!</div>
         </div>
       </React.Fragment>
