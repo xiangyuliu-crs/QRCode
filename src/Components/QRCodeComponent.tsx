@@ -9,7 +9,7 @@ interface QRCodeProps {
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const { valueForQRCode } = props;
   const [imgSrc, setImgSrc] = useState("");
-  const [showMessageModal, setShowMessageModal] = React.useState(false);
+  const [showMessageModal, setShowMessageModal] = useState(false);
 
   React.useEffect(() => {
     valueForQRCode &&
